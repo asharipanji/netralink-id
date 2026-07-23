@@ -1,0 +1,391 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Netralink.id — Internet Cepat, Stabil, Terjangkau</title>
+<style>
+  :root{
+    --navy:#0b1b33;
+    --blue:#1663d6;
+    --blue-light:#eaf2ff;
+    --gray:#5b6472;
+    --line:#e4e8ee;
+    --white:#ffffff;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{
+    font-family: "Segoe UI", Arial, sans-serif;
+    color:var(--navy);
+    background:var(--white);
+    line-height:1.6;
+  }
+  a{text-decoration:none;color:inherit;}
+  .container{max-width:1120px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--white);
+    border-bottom:1px solid var(--line);
+  }
+  .nav{
+    display:flex;align-items:center;justify-content:space-between;
+    padding:18px 0;
+  }
+  .logo{font-size:22px;font-weight:800;letter-spacing:-0.5px;}
+  .logo span{color:var(--blue);}
+  .nav-links{display:flex;gap:32px;font-size:15px;font-weight:600;color:var(--navy);}
+  .nav-links a:hover{color:var(--blue);}
+  .btn{
+    display:inline-block;padding:12px 24px;border-radius:8px;
+    font-weight:700;font-size:15px;
+  }
+  .btn-primary{background:var(--blue);color:#fff;}
+  .btn-primary:hover{background:#0f4fb0;}
+  .btn-outline{border:1.5px solid var(--navy);color:var(--navy);}
+
+  /* Hero */
+  .hero{
+    background:linear-gradient(180deg, var(--blue-light) 0%, #ffffff 100%);
+    padding:80px 0 70px;
+  }
+  .hero-inner{display:flex;align-items:center;gap:48px;flex-wrap:wrap;}
+  .hero-text{flex:1;min-width:320px;}
+  .badge{
+    display:inline-block;background:#dbe9ff;color:var(--blue);
+    font-size:13px;font-weight:700;padding:6px 14px;border-radius:999px;
+    margin-bottom:18px;
+  }
+  .hero-text h1{
+    font-size:44px;line-height:1.15;font-weight:800;margin-bottom:18px;
+    letter-spacing:-1px;
+  }
+  .hero-text h1 span{color:var(--blue);}
+  .hero-text p{font-size:17px;color:var(--gray);margin-bottom:28px;max-width:480px;}
+  .hero-cta{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-visual{
+    flex:1;min-width:280px;
+    background:var(--navy);
+    border-radius:20px;
+    height:320px;
+    display:flex;align-items:center;justify-content:center;
+    color:#fff;font-size:15px;text-align:center;padding:24px;
+    background-image: radial-gradient(circle at 30% 20%, #1663d6 0%, transparent 45%), radial-gradient(circle at 80% 80%, #0f4fb0 0%, transparent 45%), var(--navy);
+  }
+  .stats{
+    display:flex;gap:40px;margin-top:48px;flex-wrap:wrap;
+    border-top:1px solid var(--line);padding-top:32px;
+  }
+  .stat h3{font-size:28px;font-weight:800;color:var(--blue);}
+  .stat p{font-size:14px;color:var(--gray);}
+
+  /* Sections */
+  section{padding:70px 0;}
+  .section-head{text-align:center;max-width:600px;margin:0 auto 48px;}
+  .section-head .eyebrow{
+    color:var(--blue);font-weight:700;font-size:13px;letter-spacing:1px;
+    text-transform:uppercase;margin-bottom:10px;
+  }
+  .section-head h2{font-size:32px;font-weight:800;letter-spacing:-0.5px;margin-bottom:12px;}
+  .section-head p{color:var(--gray);font-size:15px;}
+
+  /* Plans */
+  .plans{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .plan{
+    border:1px solid var(--line);border-radius:16px;padding:32px 26px;
+    display:flex;flex-direction:column;
+  }
+  .plan.featured{border:2px solid var(--blue);position:relative;}
+  .plan.featured::before{
+    content:"Paling Populer";
+    position:absolute;top:-14px;left:50%;transform:translateX(-50%);
+    background:var(--blue);color:#fff;font-size:12px;font-weight:700;
+    padding:5px 14px;border-radius:999px;
+  }
+  .plan h3{font-size:18px;font-weight:800;margin-bottom:6px;}
+  .plan .price{font-size:34px;font-weight:800;color:var(--navy);margin:14px 0 4px;}
+  .plan .price span{font-size:14px;font-weight:600;color:var(--gray);}
+  .plan .desc{color:var(--gray);font-size:14px;margin-bottom:20px;}
+  .plan ul{list-style:none;margin-bottom:24px;flex:1;}
+  .plan ul li{
+    font-size:14px;padding:8px 0;border-top:1px solid var(--line);
+    display:flex;align-items:center;gap:8px;
+  }
+  .plan ul li:before{content:"✓";color:var(--blue);font-weight:800;}
+  .plan .btn{text-align:center;}
+
+  /* Why us */
+  .grid-3{display:grid;grid-template-columns:repeat(3,1fr);gap:28px;}
+  .feature{padding:28px;border-radius:14px;background:var(--blue-light);}
+  .feature .icon{
+    width:44px;height:44px;border-radius:10px;background:var(--blue);
+    color:#fff;display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:18px;margin-bottom:16px;
+  }
+  .feature h3{font-size:17px;font-weight:800;margin-bottom:8px;}
+  .feature p{font-size:14px;color:var(--gray);}
+
+  /* Coverage */
+  .coverage{background:var(--navy);color:#fff;}
+  .coverage .section-head p{color:#a9b7cc;}
+  .coverage .section-head .eyebrow{color:#6ea8ff;}
+  .coverage-list{
+    display:grid;grid-template-columns:repeat(4,1fr);gap:16px;
+    text-align:center;
+  }
+  .coverage-list div{
+    background:rgba(255,255,255,0.06);padding:18px 10px;border-radius:10px;
+    font-size:14px;font-weight:600;border:1px solid rgba(255,255,255,0.08);
+  }
+
+  /* Testimonials */
+  .testimonials{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;}
+  .testi{border:1px solid var(--line);border-radius:14px;padding:26px;}
+  .testi p{font-size:14px;color:var(--gray);margin-bottom:16px;}
+  .testi .who{font-weight:700;font-size:14px;}
+  .testi .role{font-size:13px;color:var(--gray);}
+
+  /* CTA */
+  .cta-band{
+    background:var(--blue);color:#fff;text-align:center;padding:64px 24px;
+    border-radius:20px;margin:0 24px;
+  }
+  .cta-band h2{font-size:28px;font-weight:800;margin-bottom:14px;}
+  .cta-band p{margin-bottom:26px;opacity:0.9;}
+  .cta-band .btn-primary{background:#fff;color:var(--blue);}
+  .cta-band .btn-primary:hover{background:#eaf2ff;}
+
+  /* Footer */
+  footer{background:var(--navy);color:#a9b7cc;padding:50px 0 24px;margin-top:70px;}
+  .footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:32px;margin-bottom:36px;}
+  .footer-grid h4{color:#fff;font-size:15px;margin-bottom:14px;}
+  .footer-grid p, .footer-grid a{font-size:14px;color:#a9b7cc;display:block;margin-bottom:8px;}
+  .footer-grid a:hover{color:#fff;}
+  .footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);padding-top:20px;
+    font-size:13px;text-align:center;color:#7d8aa0;
+  }
+
+  @media(max-width:820px){
+    .nav-links{display:none;}
+    .plans,.grid-3,.testimonials{grid-template-columns:1fr;}
+    .coverage-list{grid-template-columns:repeat(2,1fr);}
+    .footer-grid{grid-template-columns:1fr 1fr;}
+    .hero-text h1{font-size:32px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="container nav">
+    <div class="logo">Netra<span>link</span>.id</div>
+    <nav class="nav-links">
+      <a href="#paket">Paket</a>
+      <a href="#keunggulan">Keunggulan</a>
+      <a href="#coverage">Jangkauan</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a href="#kontak" class="btn btn-primary">Pasang Sekarang</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="container hero-inner">
+    <div class="hero-text">
+      <span class="badge">Internet Service Provider Lokal</span>
+      <h1>Internet Cepat & Stabil untuk <span>Rumah dan Bisnis Anda</span></h1>
+      <p>Netralink.id menghadirkan koneksi fiber optic dengan kecepatan konsisten, jaringan luas, dan dukungan teknis 24/7 — dirancang untuk kebutuhan digital masa kini.</p>
+      <div class="hero-cta">
+        <a href="#paket" class="btn btn-primary">Lihat Paket</a>
+        <a href="#kontak" class="btn btn-outline">Cek Jangkauan Area</a>
+      </div>
+      <div class="stats">
+        <div class="stat"><h3>99.9%</h3><p>Uptime Jaringan</p></div>
+        <div class="stat"><h3>10.000+</h3><p>Pelanggan Aktif</p></div>
+        <div class="stat"><h3>24/7</h3><p>Dukungan Teknis</p></div>
+      </div>
+    </div>
+    <div class="hero-visual">100% Fiber Optic Network — Koneksi Rumah, Bisnis &amp; Enterprise</div>
+  </div>
+</section>
+
+<section id="paket">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Paket Internet</div>
+      <h2>Pilih Paket Sesuai Kebutuhan</h2>
+      <p>Semua paket sudah termasuk instalasi, modem WiFi, dan garansi kecepatan.</p>
+    </div>
+    <div class="plans">
+      <div class="plan">
+        <h3>Home Basic</h3>
+        <p class="desc">Cocok untuk kebutuhan rumah tangga dan streaming ringan.</p>
+        <div class="price">Rp149rb<span>/bulan</span></div>
+        <ul>
+          <li>Kecepatan 20 Mbps</li>
+          <li>Unlimited kuota</li>
+          <li>1 perangkat WiFi router</li>
+          <li>Support tiket online</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pilih Paket</a>
+      </div>
+      <div class="plan featured">
+        <h3>Home Plus</h3>
+        <p class="desc">Untuk keluarga dengan banyak perangkat & kebutuhan WFH.</p>
+        <div class="price">Rp249rb<span>/bulan</span></div>
+        <ul>
+          <li>Kecepatan 50 Mbps</li>
+          <li>Unlimited kuota</li>
+          <li>Dual-band WiFi 6 router</li>
+          <li>Prioritas gangguan 24 jam</li>
+        </ul>
+        <a href="#kontak" class="btn btn-primary">Pilih Paket</a>
+      </div>
+      <div class="plan">
+        <h3>Business Pro</h3>
+        <p class="desc">Untuk kantor, warnet, dan usaha dengan traffic tinggi.</p>
+        <div class="price">Rp599rb<span>/bulan</span></div>
+        <ul>
+          <li>Kecepatan 150 Mbps</li>
+          <li>IP publik statis</li>
+          <li>SLA respons &lt; 2 jam</li>
+          <li>Dedicated account manager</li>
+        </ul>
+        <a href="#kontak" class="btn btn-outline">Pilih Paket</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="keunggulan" style="background:#fafbfd;">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Kenapa Netralink</div>
+      <h2>Keunggulan Layanan Kami</h2>
+      <p>Dibangun dengan infrastruktur yang andal dan tim support yang siap membantu.</p>
+    </div>
+    <div class="grid-3">
+      <div class="feature">
+        <div class="icon">⚡</div>
+        <h3>Kecepatan Stabil</h3>
+        <p>Jaringan fiber optic murni tanpa sharing berlebihan, latency rendah untuk gaming & video call.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🛠️</div>
+        <h3>Support 24/7</h3>
+        <p>Tim teknisi siaga setiap hari, respons gangguan cepat via telepon, WhatsApp, dan tiket online.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">🔒</div>
+        <h3>Jaringan Aman</h3>
+        <p>Infrastruktur dipantau dengan sistem keamanan siber untuk menjaga stabilitas dan privasi pelanggan.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">💰</div>
+        <h3>Harga Transparan</h3>
+        <p>Tanpa biaya tersembunyi. Tagihan jelas setiap bulan, bisa upgrade/downgrade paket kapan saja.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">📶</div>
+        <h3>Jangkauan Luas</h3>
+        <p>Terus memperluas jaringan ke area perumahan, ruko, dan kawasan bisnis baru.</p>
+      </div>
+      <div class="feature">
+        <div class="icon">✅</div>
+        <h3>Instalasi Cepat</h3>
+        <p>Proses pemasangan rata-rata 2–3 hari kerja setelah survei lokasi disetujui.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="coverage" class="coverage">
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Area Layanan</div>
+      <h2>Jangkauan Jaringan Netralink</h2>
+      <p>Sudah dan terus melebarkan jangkauan ke berbagai wilayah.</p>
+    </div>
+    <div class="coverage-list">
+      <div>Kab. Bandung</div>
+      <div>Kota Bandung</div>
+      <div>Soreang</div>
+      <div>Baleendah</div>
+      <div>Cileunyi</div>
+      <div>Ciwidey</div>
+      <div>Majalaya</div>
+      <div>Banjaran</div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="container">
+    <div class="section-head">
+      <div class="eyebrow">Testimoni</div>
+      <h2>Apa Kata Pelanggan Kami</h2>
+    </div>
+    <div class="testimonials">
+      <div class="testi">
+        <p>"Koneksinya stabil banget buat WFH, jarang putus. Tim supportnya juga responsif kalau ada kendala."</p>
+        <div class="who">Dedi Kurniawan</div>
+        <div class="role">Pelanggan Home Plus</div>
+      </div>
+      <div class="testi">
+        <p>"Sejak pakai Business Pro, operasional kantor jadi lebih lancar. Instalasinya juga cepat."</p>
+        <div class="who">Rina Marlina</div>
+        <div class="role">Pemilik Usaha, Soreang</div>
+      </div>
+      <div class="testi">
+        <p>"Harganya masuk akal dan transparan, gak ada biaya tambahan yang bikin kaget di tagihan."</p>
+        <div class="who">Andi Firmansyah</div>
+        <div class="role">Pelanggan Home Basic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="cta-band">
+    <h2>Siap Terhubung dengan Netralink?</h2>
+    <p>Cek ketersediaan jaringan di area Anda dan mulai berlangganan hari ini.</p>
+    <a href="#kontak" class="btn btn-primary">Hubungi Kami Sekarang</a>
+  </div>
+</section>
+
+<footer id="kontak">
+  <div class="container">
+    <div class="footer-grid">
+      <div>
+        <h4>Netralink.id</h4>
+        <p>Internet Service Provider lokal yang berkomitmen menghadirkan koneksi cepat, stabil, dan terjangkau untuk rumah dan bisnis di Kabupaten Bandung dan sekitarnya.</p>
+      </div>
+      <div>
+        <h4>Layanan</h4>
+        <a href="#paket">Paket Rumahan</a>
+        <a href="#paket">Paket Bisnis</a>
+        <a href="#keunggulan">Keunggulan</a>
+      </div>
+      <div>
+        <h4>Perusahaan</h4>
+        <a href="#coverage">Jangkauan Area</a>
+        <a href="#kontak">Kontak Kami</a>
+        <a href="#kontak">Karir</a>
+      </div>
+      <div>
+        <h4>Kontak</h4>
+        <p>WhatsApp: 0812-xxxx-xxxx</p>
+        <p>Email: hello@netralink.id</p>
+        <p>Soreang, Kab. Bandung</p>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      &copy; 2026 Netralink.id. Seluruh hak cipta dilindungi.
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>
