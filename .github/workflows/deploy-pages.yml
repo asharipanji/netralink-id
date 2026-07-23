@@ -33,6 +33,11 @@ jobs:
           mkdir -p _site
           cp index.html _site/
           if [ -d assets ]; then cp -R assets _site/; fi
+          # CNAME harus ikut ke dalam artefak kalau ada. Saat custom domain
+          # di-set lewat Settings, GitHub menulis file CNAME ke root repo;
+          # kalau file itu tidak ikut terbit, deploy berikutnya bisa
+          # melepaskan custom domain-nya.
+          if [ -f CNAME ]; then cp CNAME _site/; fi
 
       - name: Konfigurasi GitHub Pages
         uses: actions/configure-pages@v6
