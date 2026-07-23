@@ -12,7 +12,9 @@ permissions:
 
 concurrency:
   group: pages
-  cancel-in-progress: true
+  # Jangan batalkan run yang sedang berjalan: membatalkan deploy produksi
+  # di tengah jalan bisa meninggalkan situs dalam keadaan setengah terbit.
+  cancel-in-progress: false
 
 jobs:
   deploy:
@@ -21,10 +23,25 @@ jobs:
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-      - uses: actions/configure-pages@v5
-      - uses: actions/upload-pages-artifact@v3
+      - name: Checkout repo
+        uses: actions/checkout@v5
+
+      - name: Kumpulkan berkas yang boleh tayang
+        # Jangan pakai path '.' — itu ikut menerbitkan README.md dan .gitignore
+        # ke situs publik (mis. netralink.id/README.md). Salin hanya yang perlu.
+        run: |
+          mkdir -p _site
+          cp index.html _site/
+          if [ -d assets ]; then cp -R assets _site/; fi
+
+      - name: Konfigurasi GitHub Pages
+        uses: actions/configure-pages@v6
+
+      - name: Unggah artefak
+        uses: actions/upload-pages-artifact@v5
         with:
-          path: '.'
-      - id: deployment
-        uses: actions/deploy-pages@v4
+          path: '_site'
+
+      - name: Deploy ke GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v5
